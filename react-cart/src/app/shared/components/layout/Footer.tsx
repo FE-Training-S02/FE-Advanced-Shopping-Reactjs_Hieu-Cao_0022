@@ -2,13 +2,14 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import facebookIcon from '../../../../../assets/images/icons/facebook.svg';
-import twitterIcon from '../../../../../assets/images/icons/twitter.svg';
-import instagramIcon from '../../../../../assets/images/icons/instagram.svg';
-import LinkedInIcon from '../../../../../assets/images/icons/LinkedIn.svg';
-import youtubeIcon from '../../../../../assets/images/icons/youtube.svg';
+import facebookIcon from '../../../../assets/images/icons/facebook.svg';
+import twitterIcon from '../../../../assets/images/icons/twitter.svg';
+import instagramIcon from '../../../../assets/images/icons/instagram.svg';
+import LinkedInIcon from '../../../../assets/images/icons/LinkedIn.svg';
+import youtubeIcon from '../../../../assets/images/icons/youtube.svg';
 
 const Footer = () => {
+
   return (
     <footer>
       <div className="footer-top">
@@ -71,25 +72,21 @@ const Footer = () => {
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
-                        Shipping and Delivery{' '}
+                        Shipping and Delivery
                       </Link>
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
                         Returns
                       </Link>
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
-                        Payment Options{' '}
+                        Payment Options
                       </Link>
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
                         Contact Us
                       </Link>
                     </li>
@@ -106,25 +103,21 @@ const Footer = () => {
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
-                        Find a store{' '}
+                        Find a store
                       </Link>
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
                         Newsletter
                       </Link>
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
-                        Bacome a member{' '}
+                        Bacome a member
                       </Link>
                     </li>
                     <li className="subinfo-item">
                       <Link className="subinfo-link" to="">
-                        {' '}
                         Site feedback
                       </Link>
                     </li>
@@ -154,7 +147,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <span className="content">
-          DESIGN BY ICEO.CO - &#169 2019. ALL RIGHTS RESERVED.
+          DESIGN BY ICEO.CO - &copy; 2019. ALL RIGHTS RESERVED.
         </span>
       </div>
     </footer>

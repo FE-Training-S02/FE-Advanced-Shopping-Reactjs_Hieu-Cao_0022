@@ -1,12 +1,23 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import cartIcon from '../../../assets/images/cart/noun-cart.svg';
 import deliveryIcon from '../../../assets/images/cart/delivery.svg';
 import arrowLeftIcon from '../../../assets/images/cart/arrow-left.svg';
 import sendIcon from '../../../assets/images/cart/send.svg';
-import { Link } from 'react-router-dom';
+import { RootState } from '../../stores/app-reducer';
+import { ProductOptions } from '../../shared/types/Product';
+import CartItem from './CartItem';
 
 const ShoppingCart = () => {
+  const listItemCart: ProductOptions[] = useSelector((state: RootState) => state.cart);
+  const totalPrice = listItemCart.reduce(
+    (total: number, item: ProductOptions) => total + (item.quantity || 1) * item.price,
+    0
+  );
+
   return (
     <section className="section-cart">
       <div className="container">
@@ -24,34 +35,20 @@ const ShoppingCart = () => {
         </div>
 
         <table className="cart-content">
-          <tr>
-            <th className="col-1 text-left">Product</th>
-            <th className="col-2"></th>
-            <th className="col-2 text-center">Color</th>
-            <th className="col-2 text-center">Size</th>
-            <th className="col-2 text-center">Amount</th>
-            <th className="col-2 text-center">Price</th>
-            <th className="col-1"></th>
-          </tr>
-
-          {/* <tr>
-            <td className="product-image col-1"><img src='./assets/images/cart/product.png'></td>
-            <td className="product-info col-2">
-              <span className="product-name">T-Shirt Summer Vibes</span>
-              <span className="product-id">#261311</span>
-            </td>
-            <td className="product-color col-2 text-center">White</td>
-            <td className="product-size col-2 text-center">XL</td>
-            <td className="product-options col-2 text-center">
-              <span className="options-content d-flex justify-content-center">
-                <button className="descrease">-</button>
-                <p className="qty">5</p>
-                <button className="increase">+</button>
-              </span>
-            </td>
-            <td className="product-price col-2 text-center">$99.88</td>
-            <td className="product-delete col-1 text-right"><img src='./assets/images/cart/cancel.svg'></td>
-          </tr> */}
+          <tbody>
+            <tr>
+              <th className="col-1 text-left">Product</th>
+              <th className="col-2"></th>
+              <th className="col-2 text-center">Color</th>
+              <th className="col-2 text-center">Size</th>
+              <th className="col-2 text-center">Amount</th>
+              <th className="col-2 text-center">Price</th>
+              <th className="col-1"></th>
+            </tr>
+            {
+              listItemCart?.map((item: ProductOptions) => CartItem(item))
+            }
+          </tbody>
         </table>
 
         <div className="cart-bottom">
@@ -66,7 +63,7 @@ const ShoppingCart = () => {
           <div className="checkout">
             <p className="checkout-content">
               Total cost
-              <span className="total-cost">$159,98</span>
+              <span className="total-cost">${totalPrice.toFixed(2)}</span>
             </p>
             <span className="btn btn-checkout">CHECKOUT</span>
           </div>

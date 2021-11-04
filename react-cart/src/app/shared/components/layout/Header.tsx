@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import searchIcon from '../../../../../assets/images/icons/option1.svg';
-import cartIcon from '../../../../../assets/images/icons/option2.svg';
-import loginIcon from '../../../../../assets/images/icons/option3.svg';
-import headerLogoMobile from '../../../../../assets/images/mobile/logo.svg';
-import cartIconMobile from '../../../../../assets/images/mobile/cart.svg';
-import userIconMobile from '../../../../../assets/images/mobile/user.svg';
-import barIconMobile from '../../../../../assets/images/mobile/bar.svg';
+import searchIcon from '../../../../assets/images/icons/option1.svg';
+import cartIcon from '../../../../assets/images/icons/option2.svg';
+import loginIcon from '../../../../assets/images/icons/option3.svg';
+import headerLogoMobile from '../../../../assets/images/mobile/logo.svg';
+import cartIconMobile from '../../../../assets/images/mobile/cart.svg';
+import userIconMobile from '../../../../assets/images/mobile/user.svg';
+import barIconMobile from '../../../../assets/images/mobile/bar.svg';
 
 const Header = () => {
   return (

@@ -1,7 +1,10 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+import { RootState } from '../../../stores/app-reducer';
+import { ProductOptions } from '../../types/Product';
 import searchIcon from '../../../../assets/images/icons/option1.svg';
 import cartIcon from '../../../../assets/images/icons/option2.svg';
 import loginIcon from '../../../../assets/images/icons/option3.svg';
@@ -11,13 +14,25 @@ import userIconMobile from '../../../../assets/images/mobile/user.svg';
 import barIconMobile from '../../../../assets/images/mobile/bar.svg';
 
 const Header = () => {
+  const listItemCart: ProductOptions[] = useSelector(
+    (state: RootState) => state.cart
+  );
+  const totalProductInCart = listItemCart.reduce(
+    (total: number, item: ProductOptions) => total + (item.quantity || 1),
+    0
+  );
+
   return (
     <header>
       <div className="container">
         <div className="d-flex justify-content-between align-items-center">
           <h1 className="header-logo">
             <Link to="/" className="d-flex align-items-center">
-              <img className="header-image header-image-mobile" src={headerLogoMobile} alt="logo" />
+              <img
+                className="header-image header-image-mobile"
+                src={headerLogoMobile}
+                alt="logo"
+              />
               <img
                 className="header-image"
                 src="./images/logo.png"
@@ -56,6 +71,7 @@ const Header = () => {
                 <Link to="/cart" className="list-link" href="">
                   <img src={cartIcon} alt="cart" />
                 </Link>
+                <span className="total-product">{totalProductInCart}</span>
               </li>
               <li className="option-item">
                 <Link to="" className="list-link" href="">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import Header from '../shared/components/layout/Header';
 import Footer from '../shared/components/layout/Footer';
@@ -9,6 +9,7 @@ import Contact from './partials/Contact';
 import Reasons from './partials/Reasons';
 
 const Home = () => {
+
   return (
     <>
       <Header />

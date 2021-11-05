@@ -12,9 +12,12 @@ import { ProductOptions } from '../../shared/types/Product';
 import CartItem from './CartItem';
 
 const ShoppingCart = () => {
-  const listItemCart: ProductOptions[] = useSelector((state: RootState) => state.cart);
+  const listItemCart: ProductOptions[] = useSelector(
+    (state: RootState) => state.cart
+  );
   const totalPrice = listItemCart.reduce(
-    (total: number, item: ProductOptions) => total + (item.quantity || 1) * item.price,
+    (total: number, item: ProductOptions) =>
+      total + (item.quantity || 1) * item.price,
     0
   );
 
@@ -45,9 +48,7 @@ const ShoppingCart = () => {
               <th className="col-2 text-center">Price</th>
               <th className="col-1"></th>
             </tr>
-            {
-              listItemCart?.map((item: ProductOptions) => CartItem(item))
-            }
+            {listItemCart?.map((item: ProductOptions) => CartItem(item))}
           </tbody>
         </table>
 

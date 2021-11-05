@@ -1,13 +1,24 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+import { RootState } from '../../stores/app-reducer';
+import { ProductOptions } from '../../shared/types/Product';
 import logoMobile from '../../../assets/images/mobile/logo.svg';
 import cartIcon from '../../../assets/images/mobile/cart.svg';
 import userIcon from '../../../assets/images/mobile/user.svg';
 import barIcon from '../../../assets/images/mobile/bar.svg';
 
 const Header = () => {
+  const listItemCart: ProductOptions[] = useSelector(
+    (state: RootState) => state.cart
+  );
+  const totalProductInCart = listItemCart.reduce(
+    (total: number, item: ProductOptions) => total + (item.quantity || 1),
+    0
+  );
+
   return (
     <header>
       <div className="container">
@@ -47,6 +58,9 @@ const Header = () => {
                 <Link className="list-link" to="">
                   <img src={cartIcon} alt="cart" />
                 </Link>
+                <span className="total-product cart-page">
+                  {totalProductInCart}
+                </span>
               </li>
               <li className="option-item">
                 <Link className="list-link" to="">

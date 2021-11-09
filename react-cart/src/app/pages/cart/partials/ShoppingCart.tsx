@@ -3,18 +3,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import cartIcon from '../../../assets/images/cart/noun-cart.svg';
-import deliveryIcon from '../../../assets/images/cart/delivery.svg';
-import arrowLeftIcon from '../../../assets/images/cart/arrow-left.svg';
-import sendIcon from '../../../assets/images/cart/send.svg';
-import { RootState } from '../../stores/app-reducer';
-import { ProductOptions } from '../../shared/types/Product';
+import cartIcon from '../../../../assets/images/cart/noun-cart.svg';
+import deliveryIcon from '../../../../assets/images/cart/delivery.svg';
+import arrowLeftIcon from '../../../../assets/images/cart/arrow-left.svg';
+import sendIcon from '../../../../assets/images/cart/send.svg';
+import { RootState } from '../../../stores/app-reducer';
+import { ProductOptions } from '../../../shared/types/Product';
 import CartItem from './CartItem';
+import listProducts from '../../../data/products.json'
 
 const ShoppingCart = () => {
-  const listItemCart: ProductOptions[] = useSelector(
+  let listItemCart: any = useSelector(
     (state: RootState) => state.cart
   );
+  listItemCart = listItemCart.map((item: any) => {
+    let existsItem = listProducts.find((productItem: ProductOptions) => productItem.id === item.id)
+    return { ...existsItem, ...item }
+  })
   const totalPrice = listItemCart.reduce(
     (total: number, item: ProductOptions) =>
       total + (item.quantity || 1) * item.price,

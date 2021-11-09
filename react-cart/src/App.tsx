@@ -3,8 +3,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import './stylesheets/styles.scss'
-import Cart from './app/cart/Cart';
-import Home from './app/home/Home';
+import Cart from './app/pages/cart/Cart';
+import Home from './app/pages/home/Home';
 
 function App() {
   return (

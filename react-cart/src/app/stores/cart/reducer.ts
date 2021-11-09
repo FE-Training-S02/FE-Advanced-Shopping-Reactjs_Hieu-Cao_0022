@@ -7,17 +7,14 @@ export const cartReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case cartConstant.HANDLE_INCREASE_OR_DESCREASE_QUANTITY: {
       let cartItems = [...state];
-      let indexProduct = cartItems.findIndex(
+      let product = cartItems.find(
         (item: ProductOptions) => item.id === action.payload.product.id
       );
-      if (indexProduct !== -1) {
-        cartItems[indexProduct] = {
-          ...cartItems[indexProduct],
-          quantity: cartItems[indexProduct].quantity + action.payload.quantity,
-        };
+      if (product) {
+        product.quantity = product.quantity + action.payload.quantity
       } else {
         let newItem = {
-          ...action.payload.product,
+          id: action.payload.product.id,
           quantity: 1,
         };
         cartItems.push(newItem);

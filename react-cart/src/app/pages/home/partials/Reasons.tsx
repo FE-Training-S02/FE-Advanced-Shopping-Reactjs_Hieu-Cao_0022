@@ -1,9 +1,9 @@
 import React from 'react';
 
-import reasonIcon1 from '../../../assets/images/icons/icon1.svg';
-import reasonIcon2 from '../../../assets/images/icons/icon2.svg';
-import reasonIcon3 from '../../../assets/images/icons/icon3.svg';
-import reasonIcon4 from '../../../assets/images/icons/icon4.svg';
+import reasonIcon1 from '../../../../assets/images/icons/icon1.svg';
+import reasonIcon2 from '../../../../assets/images/icons/icon2.svg';
+import reasonIcon3 from '../../../../assets/images/icons/icon3.svg';
+import reasonIcon4 from '../../../../assets/images/icons/icon4.svg';
 
 const Reasons = () => {
   return (

@@ -213,13 +213,13 @@
   position: fixed;
   left: 0;
   right: 0;
-  top: 30px;
+  top: -50px;
   font-size: 17px;
   display: flex;
   align-items: center;
   &.show {
     visibility: visible;
-    animation: fadein 1s, fadeout 1s 3s;
+    animation: fadeDownAndUp 3s forwards;
   }
 }
 @media screen and (max-width: 480px) {
@@ -323,14 +323,18 @@
   }
 }
 
-@keyframes fadein {
-  from {
+@keyframes fadeDownAndUp {
+  0% {
     top: 0;
     opacity: 0;
   }
-  to {
-    top: 30px;
+  60%{
+    top: 50px;
     opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
   }
 }
 

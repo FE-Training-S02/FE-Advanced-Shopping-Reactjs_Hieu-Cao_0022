@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { ProductOptions } from '../../shared/types/Product';
-import deleteButton from '../../../assets/images/cart/cancel.svg';
-import { DeleteToCart, handleDecrementOrIncreaseQuantity } from '../../stores/cart/actions';
+import { ProductOptions } from '../../../shared/types/Product';
+import deleteButton from '../../../../assets/images/cart/cancel.svg';
+import { DeleteToCart, addItemToCart } from '../../../stores/cart/actions';
 
 const CartItem = (product: ProductOptions) => {
   const { id, name, image, price, quantity } = product;
@@ -12,9 +12,9 @@ const CartItem = (product: ProductOptions) => {
 
   const handleChangeQuantity = (product: ProductOptions, increase = true) => {
     if (increase) {
-      dispatch(handleDecrementOrIncreaseQuantity(product, 1));
+      dispatch(addItemToCart(product, 1));
     } else {
-      dispatch(handleDecrementOrIncreaseQuantity(product, -1));
+      dispatch(addItemToCart(product, -1));
     }
   };
 

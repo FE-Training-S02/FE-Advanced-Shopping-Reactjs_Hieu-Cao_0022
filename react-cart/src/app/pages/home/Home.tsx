@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-import Header from '../shared/components/layout/Header';
-import Footer from '../shared/components/layout/Footer';
-import ListProducts from '../shared/components/partials/ListProducts';
+import Header from '../../shared/components/layout/Header';
+import Footer from '../../shared/components/layout/Footer';
+import ListProducts from '../../shared/components/partials/ListProducts';
 import Banner from './partials/Banner';
 import Collections from './partials/Collections';
 import Contact from './partials/Contact';

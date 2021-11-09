@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import arrowBanner from '../../../assets/images/icons/arrow.svg';
-import serviceShipping from '../../../assets/images/icons/services1.svg';
-import serviceSatisfied from '../../../assets/images/icons/services2.svg';
-import serviceOriginality from '../../../assets/images/icons/services3.svg';
+import arrowBanner from '../../../../assets/images/icons/arrow.svg';
+import serviceShipping from '../../../../assets/images/icons/services1.svg';
+import serviceSatisfied from '../../../../assets/images/icons/services2.svg';
+import serviceOriginality from '../../../../assets/images/icons/services3.svg';
 
 const Banner = () => {
   return (

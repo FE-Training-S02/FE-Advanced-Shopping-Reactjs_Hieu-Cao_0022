@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import { handleDecrementOrIncreaseQuantity } from '../../../stores/cart/actions';
 import { ProductOptions } from '../../types/Product';
+import { addItemToCart } from '../../../stores/cart/actions';
+import { NotificationContext } from '../../../notifications/NotificationProvider';
 
 const CardProduct = (product: ProductOptions) => {
   const { id, name, image, price, discount } = product;
   const dispatch = useDispatch();
+  const { handleAddNotification } = useContext(NotificationContext)
 
   const handleAddToCart = (product: ProductOptions) => {
-    dispatch(handleDecrementOrIncreaseQuantity(product, 1));
+    dispatch(addItemToCart(product, 1));
+    handleAddNotification({ type: 'SUCCESS', message: 'Added product to cart' })
   };
 
   return (
